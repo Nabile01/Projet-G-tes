@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*Montagne parallax*/
+.zoom{
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    overflow: hidden;
+    background: url(media/bg\ \(1\).jpg) ;
+    background-size: cover;
+    padding-bottom: 0;
+}
+.zoom:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 1000;
+    background: linear-gradient(transparent,#fff);
+}
+.zoom #layer1{
+    position: absolute;
+    left: 40%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.zoom #layer2{
+    position: absolute;  
+    right: 0;
+    width: 100%;
+    
+    z-index: 9;
+}
+.zoom #text{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: translateY(50%);
+    
+}
+.content{
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.content h2{
+    margin: 0;
+    padding: 0;
+    font-size: 4em;
+    
+}
+.content p{
+    font-size: 1.2em;
+
+}
+
+
+
+/*Formulaire de recherche*/
+.formReach{
+   margin:0px 0 10px 30px;
+   padding: 40px;
+   
+   background-image:url(media/texture-wood-tree-wood-texture-background-timber-wood-texture-grain-nature-material.jpg);
+    
+   box-shadow:0px 5px 5px 0px rgba(0 ,0 ,0 ,0.5) , 
+   0px 5px 5px 0px rgba(255 ,255 , 255, 0.5 ) inset;
+   width: 95%;
+   height: 100px;
+   display: inline-flex;
+   
+   border-radius:20px;
+   font-size: 25px;
+   box-sizing: border-box;
+}
+.case{
+   height: 60px;
+   padding: 0;
+}
+.formReach>input{
+   margin: -20px 50px;
+   height: 60px;
+   border-radius: 5px;
+}
+label{
+  font-size: 30px;
+  font-weight:80px ;
+  text-decoration: up;
+  margin-top: -8px;
+   color: rgb(0, 0, 0);
+   text-shadow:  5px 5px 5px rgb(246, 246, 246);
+}
+#place{
+  padding-left: 20px;
+  font-size: 20px;
+  font-style: italic;
+}
+.formReach button{
+   border-radius:5px ;
+   background-color: rgb(95, 95, 95);
+   width: 120px;
+   height: 40px;
+   margin: -10px auto;
+   
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   text-decoration:none ;
+   font-size: 10px;
+  
+   
+   color: rgb(251, 249, 251);
+}
+.button{
+  margin-top: -15px;
+  margin-left: 30px;
+}
+button:hover{
+   color: #010b14;
+   background-color: #7a7979;
+   box-shadow: 0 0 10px #f8f8f8,0 0 40px #f8f8f8,0 0 80px #f9fafa ;
+   
+}
+.cheat{
+  text-align: center;
+  margin-top: 10px;
+  text-shadow:  0 0 4px black;
+}
+main{
+  padding-top: 10px;
+}
+/* Section photo de la page d'accueil */
+.photo{
+   width: 1000px;
+   height: 550px;
+}
+.cadre{
+   margin-left: 300px;
+   width: 750px;
+   height: 500px;
+   border: 3px solid rgb(65, 65, 65);
+   outline: 3px solid gray;
+   box-sizing: border-box;
+   box-shadow:20px 20px 20px rgb(102, 102, 102);
+   background-image: url(media/texture-wood-tree-wood-texture-background-timber-wood-texture-grain-nature-material.jpg);
+}
+.contener_slideshow
+{
+   border: 3px solid rgb(65, 65, 65);
+   outline: 3px solid gray;
+   margin-top: 20px;
+   margin-left: 20px;
+  width:700px;
+  height: 450px;
+  overflow: hidden;
+  position: absolute;
+  
+  
+}
+.slid_1, .slid_2, .slid_3
+{
+  position: absolute;
+  width:700px;
+  height:450px;
+}
+.slid_1{left: 0;}
+.slid_2{left: 700px;}
+.slid_3{left: 1400px;}
+.contener_slide
+{
+  width: 1400px;
+  height: 450px;
+  left:0px;
+  position: absolute;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-name: anim_slide;
+  -moz-animation-duration: 10s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-name: anim_slide;
+  -ms-animation-duration: 10s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-name: anim_slide;
+  animation-duration: 10s;
+  animation-iteration-count:infinite;
+  animation-name: anim_slide;
+}
+@-webkit-keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-700px;}
+  45% {left: -700px;}
+  66% {left:-1400px;}
+  90% {left:-1400px;}
+}
+@-moz-keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-700px;}
+  45% {left:-700px;}
+  66% {left:-1400px;}
+  90% {left:-1400px;}
+}
+@-ms-keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-700px;}
+  45% {left:-700px;}
+  66% {left:-1400px;}
+  90% {left:-1400px;}
+}
+@keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-700px;}
+  45% {left:-700px;}
+  66% {left:-1400px;}
+  90% {left:-1400px;}
+}
+
+/*page de résultat recherche*/
+
+/*Footer*/
+footer{
+   margin: 0px 0px 10px 30px;
+   width: 95%;
+   height: 80px;
+   border-radius: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: flex;
+   background-image:url(media/texture-wood-tree-wood-texture-background-timber-wood-texture-grain-nature-material.jpg);
+     
+    box-shadow:0px 2px 2px 0px rgba(0 ,0 ,0 ,0.5) inset, 
+    0px 2px 2px 0px rgba(255 ,255 , 255, 0.5 ) ;
+}
+
+footer div{
+   
+   align-items: flex-start;
+   width: 1200px;
+   height: 40px;
+   background-color:rgb(139, 139, 138);
+   display: inline;
+   font-size: 25px;
+   margin: 20px 50px;
+  
+}
+h3{
+   font-size: 25px;
+}
+/*Page de présentation produit*/
+.produit{
+   
+   border: 5px solid turquoise;
+
+}
+/*section centrale présentation photo*/
+.affiche{
+   text-align: center;
+   float: left;
+   width: 65%;
+   height: auto;
+   background-color: rgb(225, 128, 245);
+}
+.affiche 
+.central{
+   margin:  auto;
+   background-color: slateblue;
+   width: 700px;
+   height: 500px;
+}
+.trio{
+   display: flex;
+   flex-direction:row ;
+   justify-content: center;
+}
+.trio>div{
+   margin-top: 20px;
+   margin-left: 30px;
+   display: flex;
+   justify-content: space-between;
+   
+   
+   background-color: rgb(156, 156, 156);
+   width: 200px;
+   height: 150px;
+}
+/*Section réservation*/
+.reservation{
+   
+   width: 30%;
+   height: 750px;
+   background-color: seagreen;
+   display: flex;
+   flex-direction:column;
+}
+
+.price{
+   border: 2px solid rgb(110, 248, 110);
+   color: rgb(250, 248, 248);
+   margin: 20px 0 10px 100px;
+   width: 200px;
+   height: 60px;
+   background-color: rgb(43, 226, 141);
+  
+   font-size: 25px;
+   
+}
+.calendrier{
+   padding-left: 100px;
+}
+form>div{
+   width: auto;
+   margin-top: 20px;
+   margin-left: 25px;
+   float: left;
+   
+}
+.case-rese{   
+   
+   width: 150px;
+   height: 50px;
+   border-radius: 5px;
+}
+.form-reservation input{  
+   border-radius: 5px; 
+   width: 150px;
+   height: 50px;
+   display: flex;   
+}
+div resEmail{
+   width: 300px;
+}
+form>.button{
+   border-radius:5px ;
+   background-color: teal;
+   width: 120px;
+   height: 40px;
+   margin-top: 30px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   text-decoration:none ;
+   font-size: 10px;
+  margin-top: 30px;
+   
+   color: thistle;
+}
+form>button:hover{
+   color: #0e87f8;
+   background-color: #9ecaee;
+   box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3 ;
+   
+
+}
+/*Descriptif de la page présentation*/
+.description{
+   background-color: rgb(135, 185, 202);
+
+}
+.description>h2{
+   color: rgb(31, 109, 105);
+   text-align: center;
+   font-size: 30px;
+   font-weight: bolder;
+}
+.listDescri{
+   margin: 0 auto;
+   width: 900px;
+   height: 300px;
+
+}
+.listDescri>ul>li{
+   padding: 10px 20px;
+   font-size: 25px;
+}
+.calendrier{
+   padding-left: 100px;
+}
+
+/*PAGE RESULTAT */
+
+body.resultat > header > section.research {
+   height:70px;
+   width: auto;
+   display: flex;
+   justify-content: center;
+   
+}
+
+
+body.resultat > header > section.research > form > div {
+   display: flex;
+   align-items: center;
+   background-color: orangered;
+   padding: 10px;
+}
+
+
+.filter-box {
+   background-color: burlywood;
+   display:flex;
+}
+
+.filter-box > span > input[type=number] {
+   width: 20px;
+}
