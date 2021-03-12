@@ -1,5 +1,5 @@
-loadData();
-function loadData() {
+Check();
+function Check() {
 
     var httpRequest = new XMLHttpRequest();
     var category = document.getElementsByName('boxCategory[]');
@@ -66,6 +66,25 @@ function loadData() {
         });
     }
 }
+
+
+loadData();
+function loadData() {
+    let blockReponse = document.getElementById('reponse');
+
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+
+            blockReponse.innerHTML = httpRequest.response;
+
+        } else if (httpRequest.readyState < 4) {
+            console.log('Pas ok');
+        }
+    };
+}
+
 
 
     // loadData();
