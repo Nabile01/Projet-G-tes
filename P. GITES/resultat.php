@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">t
+    <link rel="stylesheet" href="style.css">
     <title>Resultat</title>
 </head>
 
@@ -35,7 +35,7 @@
                     <option name="selectPrice" value="decroissant">Ordre décroissant</option>
                 </select>
             </div>
-
+    
             <div>
                 <h3>Catégorie</h3>
                 <label for="">Chambre</label>
@@ -147,6 +147,8 @@
                         </div>
                     </a>
             </div>
+
+            <div id="reponse"></div>
         <?php }?>
         </section>
         <script src="ajax/ajax.js"></script>
