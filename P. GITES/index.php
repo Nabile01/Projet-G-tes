@@ -20,39 +20,60 @@
         <section class="content">
             <form action="resultat.php" method="post">
                 <div class="formReach">
-                    <input type="search" id="place" name="place" placeholder="Destination">
-                    <label class="case" for="arrive">Arrivée:</label>
-                    <input type="date" id="start" name="start" min="<?= date('Y-m-d') ?>">
-                    <label class="case" for="departure">Départ:</label>
-                    <input type="date" id="leave" name="leave" min="<?= date('Y-m-d') ?>">
-                    <div class="button">
-                    <button>Rechercher</button>
-                    </div>
+                    <span  class="desti">
+                        <label class="case" for="desti">Destination: </label>
+                        <input type="search" id="place" name="place" placeholder="Destination">
+                    </span >
+                    <span  class="arriv">
+                        <label class="case" for="arrive">Arrivée:</label>                    
+                        <input type="date" id="start" name="start" min="<?= date('Y-m-d') ?>">
+                    </span >
+                    <span  class="depart">
+                        <label class="case" for="departure">Départ:</label>
+                        <input type="date" id="leave" name="leave" min="<?= date('Y-m-d') ?>">
+                    </span >
+                    <span  class="button">
+                        <button>Rechercher</button>
+                    </span >
                 </div>
             </form>
         </section>
     </header>
     <main >
-    <h2 class="cheat"> Gîtes de la <a href="form.php">S</a>a<a href="resultat.php">v</a>oi<a href="presentation.php">e</a></h2>
-        <section class="photo">
-          <div class="cadre">
-        <div class="slideshow">
-  <div class="contener_slideshow">
-    <div class="contener_slide">
-      <div class="slid_1"><img src="media/slider3d-1.jpg" width="700px" height="450px"></div>
-      <div class="slid_2"><img src="media/slider3d-2.jpg" width="700px" height="450px"></div>
-      <div class="slid_3"><img src="media/slider3d-3.jpg" width="700px" height="450px"></div>
+    <section class="photo">
+<div class="gallery">
+    <div class="gallery__item gallery__item--1">
+    <img src="media/slider3d-1.jpg" alt="" class="photomosa" width="610px" height="405px">
+    
     </div>
-  </div>
-</div>
+    <div class="gallery__item gallery__item--2">
+    <img src="media/SAVOIE-002.jpg" alt="" class="photomosa" width="300px" height="200px">
+    
+    </div>
+    <div class="gallery__item gallery__item--3">
+    <img src="media/slider3d-2.jpg" alt=""class="photomosa" width="300px" height="200px">
+    
+    </div>
+    <div class="gallery__item gallery__item--4">
+    <img src="media/thural-home.jpg" alt="" class="photomosa" width="300px" height="200px">
+    
+    </div>
+    <div class="gallery__item gallery__item--5">
+    <img src="media/chalet.jpg" alt="" class="photomosa" width="300px" height="200px">
+    
+    </div>
+    <div class="gallery__item gallery__item--6">
+    <img src="media/slider3d-3.jpg" alt="" class="photomosa" width="610px" height="405px">
+    
+    </div>
 </div>
 </section>
-    </main>
+    </main>   
     <footer>
-        <div class="bandeau">
-
-        </div>
-    </footer>
+        <div>Réseaux</div>
+        <div>Copyright</div>
+        <div>Contact</div>
+    </footer>   
     <script type="text/javascript">
         var layer1 = document.getElementById('layer1')
         scroll = window.pageYOffset;
@@ -61,7 +82,6 @@
             scroll = offset;
             layer1.style.width = (100 + scroll / 5) + '%';
         });
-
         var layer2 = document.getElementById('layer2')
         scroll = window.pageYOffset;
         document.addEventListener('scroll', function(e) {

@@ -90,7 +90,7 @@ class LodgeManager
     public function getSearch($location)
     {
         $lodge = [];
-        $req = $this->_db->prepare('SELECT * FROM `lodge` NATURAL JOIN `booking` WHERE (:arrival NOT BETWEEN `arrival` AND `departure`) AND (:departure NOT BETWEEN `arrival` AND `departure`) AND `location` = :location ');
+        $req = $this->_db->prepare('SELECT * FROM `lodge` INNER JOIN `booking` ON lodge.idlodge = booking.idlodge WHERE (:arrival NOT BETWEEN `arrival` AND `departure`) AND (:departure NOT BETWEEN `arrival` AND `departure`) AND `location` = :location ');
         $req->bindValue(':arrival', $location->getArrival());
         $req->bindValue(':departure', $location->getDeparture());
         $req->bindValue(':location', $location->getLocation());

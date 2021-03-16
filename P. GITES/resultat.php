@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">t
+    <link rel="stylesheet" href="style.css">
     <title>Resultat</title>
 </head>
 
@@ -29,7 +29,7 @@
         <div class="filter-box">
             <div>
                 <h3>Prix</h3>
-                <select>
+                <select id="SelectFilter">
                     <option name="selectPrice">--</option>
                     <option name="selectPrice" value="croissant">Ordre croissant</option>
                     <option name="selectPrice" value="decroissant">Ordre décroissant</option>
@@ -56,7 +56,7 @@
 
                 <label for="">1</label>
                 <input type="checkbox" name="boxBathroom[]" value="1">
-                
+
                 <label for="">2</label>
                 <input type="checkbox" name="boxBathroom[]" value="2">
 
@@ -65,8 +65,8 @@
 
                 <label for="">4</label>
                 <input type="checkbox" name="boxBathroom[]" value="4">
-                
-                <label for="">5+</label>
+
+                <label for="">5</label>
                 <input type="checkbox" name="boxBathroom[]" value="5+">
             </div>
 
@@ -84,8 +84,8 @@
 
                 <label for="">4</label>
                 <input type="checkbox" name="boxBedroom[]" value="4">
-                
-                <label for="">5+</label>
+
+                <label for="">5</label>
                 <input type="checkbox" name="boxBedroom[]" value="5+">
             </div>
 
@@ -110,46 +110,64 @@
     </header>
 
     <main>
-        <section class="resultat">
-            <div class="lodgeList">
-                <?php
-                require "connect.php";
-                require_once "classes/LodgeManager.php";
-                require_once "classes/class.booking.php";
-                require_once "classes/BookingManager.php";
-                require_once "classes/class.lodge.php";
-                require "ajax/selectsearch.php";
-                $location = $_POST['place'];
-                $arrival = $_POST['start'];
-                $departure = $_POST['leave'];
+        <section class="result" id="result">
+            <?php
+            require "connect.php";
+            require_once "classes/LodgeManager.php";
+            require_once "classes/class.booking.php";
+            require_once "classes/BookingManager.php";
+            require_once "classes/class.lodge.php";
+            require "selectsearch.php";
+            $location = $_POST['place'];
 
-                $manager = new LodgeManager($db);
-                if (!empty ($_POST['place'])){
-                    $lodge = new Lodge(array('location' => $location, 'arrival' => $arrival, 'departure' => $departure));
-                    $lodgeWhere = $manager->getSearch($lodge);
-                } else {
-                    $lodgeWhere= $manager->getListLodge();
-                }
-                    foreach ($lodgeWhere as $data) {
-                    foreach (unserialize($data->getImage()) as $image) {
-                        echo '<div>';
-                        echo '<img src="' . $image . '" alt="" width="50px" height="35">';
-                        echo '</div>';
-                    }
-                ?>
-                    <a href="presentation.php?id= <?= $data->getIdLodge() ?> ">
-                        <div class="lodge">
-                            <h3>Nom du gîte:<?= $data->getlodgename(); ?></h3>
-                            <p>Categorie:<?= $data->getCategory(); ?></p>
-                            <p>Surface:<?= $data->getSpecificity(); ?></p>
-                            <p>Nombre de salle de bain:<?= $data->getBathroom(); ?></p>
-                            <p>Nombre de couchage:<?= $data->getBedroom(); ?></p>
+            if (empty($_POST['start'])) {
+                $arrival = date('Y-m-d');
+            } else {
+                $arrival = $_POST['start'];
+                var_dump($arrival);
+            }
+            if (empty($_POST['leave'])) {
+                $departure = date('Y-m-d');
+            } else {
+                $departure = $_POST['leave'];
+            }
+
+            $manager = new LodgeManager($db);
+            if (!empty($_POST['place'])) {
+                $lodge = new Lodge(array('location' => $location, 'arrival' => $arrival, 'departure' => $departure));
+                $lodgeWhere = $manager->getSearch($lodge);
+            } else {
+                $lodgeWhere = $manager->getListLodge();
+            }
+
+            foreach ($lodgeWhere as $data) {
+                $array = unserialize($data->getImage()); ?>
+                <a id="lodge_click" class="presengite" href="presentation.php?id=<?= $data->getIdlodge(); ?>">
+                    <div class="photogite">
+                        <div><img src="<?= $array[0] ?>" width="100%" height="300px" alt=""></div>
+                    </div>
+                    <div class="descrigite">
+                        <div class="vignette">
+                            <img src="<?= $array[1] ?>" width="100%" height="130px" alt="">
+                            <img src="<?= $array[2] ?>" width="100%" height="130px" alt="">
                         </div>
-                    </a>
-            </div>
-        <?php }?>
+
+                        <h2><?= $data->getLodgename(); ?></h2>
+                        <div class="descritext1">
+                            <p>Categorie: <?= $data->getCategory(); ?></p><br>
+                            <p>Nombre de chambre: <?= $data->getBedroom(); ?></p><br>
+                            <p>Nombre de salle de bain: <?= $data->getBathroom(); ?></p>
+                        </div>
+                        <div class="descritext2">
+                            <p>Prix: <?php echo $data->getPrice() . '€/ jours'; ?></p><br>
+                            <p>Localisation: <?= $data->getLocation(); ?></p><br>
+                        </div>
+
+                    </div>
+                </a>
+            <?php } ?>
         </section>
-        <script src="ajax/ajax.js"></script>
+        <script src="ajax.js"></script>
     </main>
     </body.resultat>
 

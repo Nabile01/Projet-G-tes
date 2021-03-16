@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -11,27 +11,18 @@
 </head>
 
 <body class="presentation">
-    <div id="popup"></div>
     <header>
         <section class="content">
-
-            <form action="#" method="post">
+            <form action="#" method="POST">
                 <div class="formReach">
 
                     <label class="case" for="place">Destination:</label>
                     <input type="text" id="place" name="place">
                     <label class="case" for="arrive">Arrivée:</label>
-                    <input type="date" id="start" name="start">
+                    <input type="date" id="start" name="start" placeholder="Arrivée">
                     <label class="case" for="departure">Départ:</label>
                     <input type="date" id="leave" name="leave">
-                    <div class="button">
-                        <a class="neon" href="#">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <button type="submit">Rechercher</button>
-                    </div>
+                    <button type="submit" id="buttonResearch">Rechercher</button>
                 </div>
             </form>
         </section>
@@ -49,16 +40,15 @@
         $lodge = $manager->getListid($_GET['id']); //a recuperer plus tard en get
         ?>
         <section class="produit">
+            <h3><?= $lodge->getLodgename(); ?></h3>
             <div class="affiche">
-                <h3><?= $lodge->getLodgename(); ?></h3>
-                <div class="display-container"></div>
                 <div class="central">
                     <?php
                     //BOUCLE SLIDER
                     foreach (unserialize($lodge->getImage()) as $image) {
-                        echo '<img class="mySlides" src="' . $image . '" alt="" width="500px" height="350px">';
-                    }
-
+                        echo '<div><img class="mySlides" src="' . $image . '" alt="" width="600px" height="450px"></div>';
+                    } ?>
+                    <?php
                     //ADD DATE
                     if (isset($_POST['bookingBtn'])) {
                         $managerBooking = new BookingManager($db);
@@ -66,26 +56,13 @@
                         $managerBooking->addBooking($addBooking);
                     }
                     ?>
-                    <div class="w3-center">
-                        <div class="w3-section">
-                            <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-                            <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
-                        </div>
-                        <button class="w3-button demo" onclick="currentDiv(1)">1</button>
-                        <button class="w3-button demo" onclick="currentDiv(2)">2</button>
-                        <button class="w3-button demo" onclick="currentDiv(3)">3</button>
-                        <button class="w3-button demo" onclick="currentDiv(4)">4</button>
-                    </div>
                 </div>
-            
-                </div>
-            <div class="reservation">
-                <div class="glassbox">
-                <a class="price">Prix:<?php
+            </div>
+            <div class="reservationBox">
+                <p class="price">Prix:<?php
                                         $calculprice = $lodge->getPrice() * 7;
-                                        echo $lodge->getPrice() . '€/ jours   - ';
-                                        echo $calculprice . '€/ semaine'; ?></a>
-                <div class="calendrier"><img src="https://jcchauvel.files.wordpress.com/2017/03/calendrier-ouvert.png"></div>
+                                        echo $lodge->getPrice() . '€/ jours'; ?></p>
+                <p class="priceWeek"><?php echo $calculprice . '€/ semaine'; ?></p>
                 <div class="form-reservation">
                     <form action="" method="post">
                         <div>
@@ -108,45 +85,61 @@
                             <label class="case-rese" for="email">E-Mail:</label>
                             <input type="email" name="email" id="email">
                         </div>
-                        <div class="button">                            
-                            <button id="bookingBtn" name="bookingBtn" type="submit">Reserver</button>
+                        <div class="button">
+                            <button id="bookingBtn" name="bookingBtn" type="submit">Réserver</button>
                         </div>
-                    </div>
-                </div>
-                </div>
-                        <?php
-                        if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
-                            
-                            $firstname = $_POST['firstname'];
-                            $lastname = $_POST['lastname'];
-                            $email = $_POST['email'];
-                            $finaleprice = 'nbrjour reserver * prix journalier';
-                            $nomdugite = '<?= $lodge->getLodgename(); ?>';
-                            $send = "Bonjour $firstname $lastname vous vous appretez à reserver le gite $nomdugite pour un prix de $finaleprice";
-
-                            $dest = $email;
-                            $sujet = "Reservation Gite !";
-                            $message = $send;
-                            $header = "From: $dest";
-                            mail($dest, $sujet, $message, $header);
-                        }
-                        ?>
-                    </form>
                 </div>
             </div>
+            </div>
+            <div class="w3-center">
+                <div class="w3-section">
+                    <!-- <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button> -->
+                    <div><a class="w3-button demo" onclick="currentDiv(1)"></a></div>
+                    <div><a class="w3-button demo" onclick="currentDiv(2)"></a></div>
+                    <div><a class="w3-button demo" onclick="currentDiv(3)"></a></div>
+                    <div><a class="w3-button demo" onclick="currentDiv(4)"></a></div>
+                    <!-- <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button> -->
+                </div>
+                <div class="reservation">
 
+                </div>
+                <?php
+                if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
+
+                    $firstname = $_POST['firstname'];
+                    $lastname = $_POST['lastname'];
+                    $email = $_POST['email'];
+                    $finaleprice = 'nbrjour reserver * prix journalier';
+                    $nomdugite = '<?= $lodge->getLodgename(); ?>';
+                    $send = "Bonjour $firstname $lastname vous vous appretez à reserver le gite $nomdugite pour un prix de $finaleprice";
+
+                    $dest = $email;
+                    $sujet = "Reservation Gite !";
+                    $message = $send;
+                    $header = "From: $dest";
+                    mail($dest, $sujet, $message, $header);
+                }
+                ?>
+                </form>
+            </div>
+            </div>
         </section>
+
         <section class="description">
-            <h2>Description:</h2>
             <div class="listDescri">
+                <h2><?= $lodge->getLodgename(); ?></h2>
+                <div class="Speci1">
                
-                    <a>Nom: <?= $lodge->getLodgename(); ?></a>
-                    <a>Localisation: <?= $lodge->getLocation(); ?></a>
-                    <a>Nombre de couchage: <?= $lodge->getBedroom(); ?></a>
-                    <a>Nombre de salle de bain: <?= $lodge->getBathroom(); ?></a>
-                    <a> Prix: <?= $lodge->getPrice(); ?> Euros</li>
-                    <a>Disponibilité: </a>
-                
+                    <p><i><img class="Icon" src="media/douche.png" alt=""></i>Localisation: <?= $lodge->getLocation(); ?></p>
+                    <p><i><img class="Icon" src="media/lit-d'hotel.png" alt=""></i>Nombre de couchage: <?= $lodge->getBedroom(); ?></p>
+                    <p>Spécificité: <?= $lodge->getSpecificity(); ?></p>
+                </div>
+                <div class="Speci1">
+                    <p> Catégorie: <?= $lodge->getCategory(); ?></li>
+                    <p><i><img class="Icon" src="media/douche.png" alt=""></i>Nombre de salle de bain: <?= $lodge->getBathroom(); ?></p>
+                    <p> Prix: <?= $lodge->getPrice(); ?> Euros</li>
+                </div>
+                <p class="lodgeDescription"><?= $lodge->getDescription(); ?></p>
             </div>
             <script>
                 var slideIndex = 1;

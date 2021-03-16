@@ -45,8 +45,8 @@
                         <th scope="col">Nom</th>
                         <th scope="col">Localisation</th>
                         <th scope="col">Caractéristique</th>
-                        <th scope="col">Images</th>
-                        <th scope="col">Disponibilité</th>
+                        <th scope="col">Nb. Salle de Bain</th>
+                        <th scope="col">Nb. Chambre</th>
                         <th scope="col">MODIFIER</th>
                         <th scope="col">SUPPRIMER</th>
                     </tr>
@@ -58,8 +58,8 @@
                             <td><?= $data->getLodgename(); ?></td>
                             <td><?= $data->getLocation(); ?></td>
                             <td><?= $data->getSpecificity(); ?></td>
-                            <td>Image</td>
-                            <td>Disponibilité</td>
+                            <td><?= $data->getBathroom(); ?></td>
+                            <td><?= $data->getBedroom(); ?></td>
                             <td><button><a href="historique.php?id=<?= $data->getIdlodge(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ?'));">Supprimer </a></button></td>
                             <td><button><a href="form.php?id=<?= $data->getIdlodge(); ?>">Modifier</a></button></td>
                         </tr>
