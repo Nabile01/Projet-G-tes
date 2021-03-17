@@ -101,6 +101,8 @@ class LodgeManager
         return $lodge;
     }
 
+    
+
 
     /* ------------------------------- SETTER --------------------------------- */
     public function setDb($db)

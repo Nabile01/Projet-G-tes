@@ -1,0 +1,373 @@
+* {
+    padding: 0;
+    margin: 0;
+ }
+
+/* -------------------------------------------------------------------------- */
+/*                                CSS FORM.PHP                                */
+/* -------------------------------------------------------------------------- */
+
+/* ----------------------------- CLASSIC SCREEN ----------------------------- */
+
+@media only screen and (min-width :720px) {
+    body.gestion {
+       background-image: url(media/formmick.jpg);
+       background-repeat: no-repeat;
+       background-size: auto;
+    }
+    body.gestion header>nav {
+       position: absolute;
+       right: 50px;
+    }
+    body.gestion header>nav>ol>li {
+       display: inline;
+       margin-right: 20px;
+    }
+    body.gestion a {
+       text-decoration: none;
+       color: black;
+       font-size: 25px;
+    }
+    body.gestion a:hover {
+       color: rgba(0, 60, 255, 0.548);
+    }
+    body.gestion fieldset {
+       background: linear-gradient(180deg, rgba(3, 82, 146, 0.7) 0%, rgba(235, 232, 228, 0.7) 100%);
+       border: solid black 2px;
+       border-radius: 10px;
+       margin-top: 10%;
+    }
+    body.gestion legend {
+       font-size: 50px;
+       text-align: center;
+    }
+    body.gestion .formulaire {
+       display: flex;
+       justify-content: space-around;
+    }
+    body.gestion .info {
+       display: flex;
+       flex-direction: column;
+       margin-top: 50px;
+       margin-left: 50px;
+    }
+    body.gestion .wrap label {
+       width: 100px;
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .wrap input:not(#input_img) {
+       width: 150px;
+       float: right;
+    }
+    body.gestion .specificity {
+       display: flex;
+       justify-content: space-around;
+       margin-left: -8px;
+       font-family: "Times New Roman";
+    }
+    body.gestion .specificity label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion div.text_area {
+       margin: 27px 50px 0 50px;
+       display: flex;
+       flex-direction: column;
+    }
+    body.gestion #description {
+       height: 200px;
+    }
+    body.gestion .text_area label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .enregistrer {
+       margin: 30px 0;
+       display: flex;
+       justify-content: center;
+    }
+    body.gestion .enregistrer>input {
+       height: 40px;
+       width: 150px;
+       background: linear-gradient(180deg, rgba(46, 144, 224, 0) 0%, rgba(235, 232, 228, 0) 100%);
+       font-size: 20px;
+    }
+    body.gestion .enregistrer>input:hover {
+       color: rgba(0, 60, 255, 0.548);
+       cursor: pointer;
+    }
+    body.gestion #category {
+       margin-top: 20px;
+       font-size: 20px;
+       color: black;
+       background-color: transparent;
+       border: 5px;
+       font-family: "Times New Roman";
+    }
+    body.gestion #image>input {
+       margin-top: 20px;
+       margin-left: -4px;
+       font-family: "Times New Roman";
+    }
+    body.gestion #image>input[type=file]::-webkit-file-upload-button {
+       /*modification du bouton*/
+       -webkit-apparence: none;
+       background: transparent none;
+       border: none;
+       font-size: 18px;
+    }
+ }
+ 
+ /* ----------------------------- TABLETTE SCREEN ---------------------------- */
+ 
+ @media only screen and (min-width :550px) and (max-width :720px) {
+    body.gestion {
+       background-image: url(media/formmick.jpg);
+       background-repeat: no-repeat;
+       background-size: auto;
+    }
+    body.gestion header>nav {
+       display: flex;
+       justify-content: center;
+    }
+    body.gestion header>nav>ol>li {
+       display: inline;
+       margin-right: 20px;
+    }
+    body.gestion a {
+       text-decoration: none;
+       color: black;
+       font-size: 25px;
+    }
+    body.gestion a:hover {
+       color: rgba(0, 60, 255, 0.548);
+    }
+    body.gestion fieldset {
+       display: flex;
+       flex-direction: column;
+       background: linear-gradient(180deg, rgba(3, 82, 146, 0.7) 0%, rgba(235, 232, 228, 0.7) 100%);
+       border: solid black 2px;
+       border-radius: 10px;
+       margin-top: 10%;
+       margin: 0 20px;
+    }
+    body.gestion legend {
+       font-size: 50px;
+       text-align: center;
+    }
+    body.gestion .formulaire {
+       display: flex;
+       justify-content: space-around;
+       flex-direction: column;
+    }
+    body.gestion .info {
+       display: flex;
+       flex-direction: column;
+       margin: 50px 50px 0 50px;
+    }
+    .wrap label {
+       width: 100px;
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .wrap input:not(#input_img) {
+       width: 150px;
+       float: right;
+    }
+    body.gestion .specificity {
+       display: flex;
+       justify-content: space-around;
+       margin-left: -8px;
+       font-family: "Times New Roman";
+       margin-top: 20px;
+    }
+    body.gestion .specificity label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion div.text_area {
+       margin: 27px 50px 0 50px;
+       display: flex;
+       flex-direction: column;
+    }
+    body.gestion #description {
+       height: 100px;
+    }
+    body.gestion .text_area label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .enregistrer {
+       margin: 30px 0;
+       display: flex;
+       justify-content: center;
+    }
+    body.gestion .enregistrer>input {
+       height: 40px;
+       width: 150px;
+       background: linear-gradient(180deg, rgba(46, 144, 224, 0) 0%, rgba(235, 232, 228, 0) 100%);
+       font-size: 20px;
+    }
+    body.gestion .enregistrer>input:hover {
+       color: rgba(0, 60, 255, 0.548);
+       cursor: pointer;
+    }
+    body.gestion #category {
+       margin-top: 20px;
+       font-size: 20px;
+       color: black;
+       background-color: transparent;
+       border: 5px;
+       font-family: "Times New Roman";
+    }
+    body.gestion #image>input {
+       margin-top: 20px;
+       margin-left: -4px;
+       font-family: "Times New Roman";
+       width: 400px;
+    }
+    body.gestion #image>input[type=file]::-webkit-file-upload-button {
+       /*modification du bouton*/
+       -webkit-apparence: none;
+       background: transparent none;
+       border: none;
+       font-size: 18px;
+    }
+ }
+ 
+ @media screen and (max-width :550px) {
+    body.gestion {
+       background-image: url(media/formmick.jpg);
+       background-repeat: no-repeat;
+       background-size: auto;
+    }
+    body.gestion header>nav {
+       display: flex;
+       justify-content: center;
+    }
+    body.gestion header>nav>ol>li {
+       display: inline;
+       margin-right: 20px;
+    }
+    body.gestion a {
+       text-decoration: none;
+       color: black;
+       font-size: 25px;
+    }
+    body.gestion a:hover {
+       color: rgba(0, 60, 255, 0.548);
+    }
+    body.gestion fieldset {
+       display: flex;
+       flex-direction: column;
+       background: linear-gradient(180deg, rgba(3, 82, 146, 0.7) 0%, rgba(235, 232, 228, 0.7) 100%);
+       border: solid black 2px;
+       border-radius: 10px;
+       margin-top: 10%;
+       margin: 0 20px;
+    }
+    body.gestion legend {
+       font-size: 50px;
+       text-align: center;
+    }
+    body.gestion .formulaire {
+       display: flex;
+       justify-content: space-around;
+       flex-direction: column;
+    }
+    body.gestion .info {
+       display: flex;
+       flex-direction: column;
+       margin: 50px 10px 0 10px;
+    }
+    body.gestion .wrap label {
+       width: 150px;
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .wrap input:not(#input_img) {
+       width: 150px;
+       float: right;
+    }
+    body.gestion .specificity {
+       display: flex;
+       justify-content: space-around;
+       margin-left: -8px;
+       font-family: "Times New Roman";
+       margin-top: 20px;
+    }
+    body.gestion .specificity label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion div.text_area {
+       margin: 27px 50px 0 50px;
+       display: flex;
+       flex-direction: column;
+    }
+    body.gestion #description {
+       height: 100px;
+    }
+    body.gestion .text_area label {
+       font-size: 20px;
+       color: black;
+    }
+    body.gestion .enregistrer {
+       margin: 30px 0;
+       display: flex;
+       justify-content: center;
+    }
+    body.gestion .enregistrer>input {
+       height: 40px;
+       width: 150px;
+       background: linear-gradient(180deg, rgba(46, 144, 224, 0) 0%, rgba(235, 232, 228, 0) 100%);
+       font-size: 20px;
+    }
+    body.gestion .enregistrer>input:hover {
+       color: rgba(0, 60, 255, 0.548);
+       cursor: pointer;
+    }
+    body.gestion #category {
+       margin-top: 20px;
+       font-size: 20px;
+       color: black;
+       background-color: transparent;
+       border: 5px;
+       font-family: "Times New Roman";
+    }
+    body.gestion #image>input {
+       margin-top: 20px;
+       margin-left: -4px;
+       font-family: "Times New Roman";
+       width: 400px;
+    }
+    body.gestion #image>input[type=file]::-webkit-file-upload-button {
+       /*modification du bouton*/
+       -webkit-apparence: none;
+       background: transparent none;
+       border: none;
+       font-size: 18px;
+    }
+    @media screen and (max-width :500px) {
+       body.gestion header>nav>ol>li {
+          margin-right: 5px;
+       }
+    }
+    @media screen and (max-width :460px) {
+       body.gestion div.formulaire {
+          justify-content: center;
+       }
+       body.gestion .wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+       }
+       body.gestion .wrap label {
+          width: 150px;
+       }
+       body.gestion #image>input {
+          width: 200px;
+       }
+    }
+ }
